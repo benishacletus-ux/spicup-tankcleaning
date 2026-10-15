@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>SPIC Multi Cleaning Service | Plumbing, Electrical and Tank Cleaning in Tirupur</title>
+  <title>SPICUp Multi Cleaning Service | Tank Cleaning and Plumbing, Electrical in Tirupur</title>
   <meta name="description" content="SPIC offers plumbing, electrical, water tank cleaning, waterproofing, painting and renovation in Tirupur. 24/7 emergency service.">
   <meta property="og:title" content="SPIC Multi Cleaning Service | Plumbing, Electrical and Tank Cleaning in Tirupur">
   <meta property="og:description" content="SPIC offers plumbing, electrical, water tank cleaning, waterproofing, painting and renovation in Tirupur. 24/7 emergency service.">
@@ -11,12 +11,12 @@
   <meta name="theme-color" content="#0b4ea2">
   <link rel="icon" href="assets/logo.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{--navy:#0a2540;--blue:#0b4ea2;--blue2:#1673d1;--green:#14935a;--green2:#0e7a49;--sky:#eef4fb;--mint:#e8f6ef;--ink:#14243b;--mut:#55657d;--line:#dde5ef}
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;scroll-padding-top:90px}
-    body{font-family:Poppins,system-ui,sans-serif;color:var(--ink);line-height:1.65;background:#fff;-webkit-font-smoothing:antialiased}
+    body{font-family:Poppins,system-ui,sans-serif;color:var(--ink);line-height:1.65;background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
     img{max-width:100%;display:block}
     a{color:inherit;text-decoration:none}
     ul{list-style:none}
@@ -34,8 +34,10 @@
     #menu a.on{color:var(--blue);box-shadow:0 3px 0 var(--green)}
     #menu a:not(.btn):hover{color:var(--blue)}
     #burger{display:none;background:none;border:0;color:var(--navy);font-size:1.7rem;cursor:pointer;line-height:1}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--green);color:#fff;font:600 .97rem Poppins,sans-serif;padding:13px 26px;border-radius:8px;border:0;cursor:pointer;transition:background .15s}
-    .btn:hover{background:var(--green2)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--green);color:#fff;font:600 .97rem Poppins,sans-serif;padding:13px 26px;border-radius:8px;border:0;cursor:pointer;transition:all .25s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}
+    .btn::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.2) 50%,transparent 70%);transform:translateX(-100%);transition:transform .6s}
+    .btn:hover::before{transform:translateX(100%)}
+    .btn:hover{background:var(--green2);transform:translateY(-2px);box-shadow:0 8px 20px rgba(20,147,90,.3)}
     .btn.sm{padding:9px 18px;font-size:.9rem}
     .btn.ghost{background:transparent;box-shadow:inset 0 0 0 1.5px #fff}
     .btn.ghost:hover{background:rgba(255,255,255,.12)}
@@ -45,7 +47,7 @@
     .hero .wrap{display:block}
     .hero.pg{padding:56px 0}.hero.pg .wrap{display:block}
     .crumb{font-size:.85rem;opacity:.8;margin-bottom:10px}
-    h1{font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.15;font-weight:700;letter-spacing:-.01em}
+    h1{font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.15;font-weight:800;letter-spacing:-.02em}
     h2{font-size:clamp(1.55rem,3vw,2.15rem);line-height:1.25;font-weight:700;color:var(--navy)}
     h3{font-size:1.06rem;font-weight:600;color:var(--navy)}
     .hero p{margin-top:16px;font-size:1.08rem;max-width:540px;opacity:.93}
@@ -87,44 +89,125 @@
       100%{transform:translateX(-50%)}
     }
 
-    .sec{padding:76px 0}.sec.sky{background:var(--sky)}
+    /* ===== SECTIONS ===== */
+    .sec{padding:76px 0;position:relative}
+    .sec.sky{background:var(--sky)}
     .lead{color:var(--mut);max-width:640px;margin-top:10px}
     .grid{display:grid;gap:22px;margin-top:36px}
     .g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
-    .box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px;transition:box-shadow .2s,border-color .2s}
-    a.box:hover,.box.h:hover{border-color:var(--blue2);box-shadow:0 10px 26px rgba(11,78,162,.12)}
-    .ico{display:grid;place-items:center;width:48px;height:48px;border-radius:10px;background:var(--mint);color:var(--green);font-size:1.45rem;margin-bottom:16px}
+
+    /* ===== SERVICE BOXES WITH HOVER EFFECTS ===== */
+    .box{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:28px;
+      transition:all .4s cubic-bezier(.4,0,.2,1);
+      position:relative;
+      opacity:0;
+      transform:translateY(40px);
+      overflow:hidden;
+    }
+    .box::before{
+      content:"";
+      position:absolute;
+      top:0;left:0;right:0;
+      height:3px;
+      background:linear-gradient(90deg,var(--green),var(--blue));
+      transform:scaleX(0);
+      transform-origin:left;
+      transition:transform .4s cubic-bezier(.4,0,.2,1);
+    }
+    .box.reveal{opacity:1;transform:translateY(0)}
+    .box:hover::before{transform:scaleX(1)}
+    a.box:hover,.box.h:hover{
+      border-color:transparent;
+      box-shadow:0 20px 40px rgba(11,78,162,.15);
+      transform:translateY(-6px);
+    }
+    .box .ico{
+      display:grid;
+      place-items:center;
+      width:52px;height:52px;
+      border-radius:14px;
+      background:var(--mint);
+      color:var(--green);
+      font-size:1.5rem;
+      margin-bottom:18px;
+      transition:all .4s cubic-bezier(.4,0,.2,1);
+    }
+    .box:hover .ico{transform:scale(1.1) rotate(-5deg)}
     .ico.b{background:#e4eefb;color:var(--blue)}
-    .box p{color:var(--mut);margin-top:6px;font-size:.93rem}
+    .box p{color:var(--mut);margin-top:8px;font-size:.93rem;line-height:1.6}
     .box ul{margin-top:12px}
     .box li{position:relative;padding:4px 0 4px 24px;color:var(--mut);font-size:.93rem}
     .box li::before{content:"";position:absolute;left:0;top:.7em;width:14px;height:14px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2314935a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") no-repeat}
-    .more{display:inline-block;margin-top:14px;color:var(--blue);font-weight:600;font-size:.92rem}
+    .more{display:inline-flex;align-items:center;gap:6px;margin-top:16px;color:var(--blue);font-weight:600;font-size:.92rem;transition:gap .3s}
+    .box:hover .more{gap:10px}
     .steps .box{border-top:4px solid var(--green)}
-    .steps .n{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font-weight:600;margin-bottom:14px}
+    .steps .n{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;margin-bottom:14px;font-size:.95rem}
     .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
     .chip{font:500 .9rem Poppins,sans-serif;padding:9px 20px;border-radius:50px;border:1.5px solid var(--line);background:#fff;color:var(--navy);cursor:pointer}
     .chip.on{background:var(--blue);border-color:var(--blue);color:#fff}
-    .band{background:linear-gradient(110deg,var(--blue),var(--green));color:#fff;border-radius:16px;padding:44px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+    .band{background:linear-gradient(110deg,var(--blue),var(--green));color:#fff;border-radius:20px;padding:48px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;box-shadow:0 20px 50px rgba(11,78,162,.25)}
     .band h2{color:#fff}.band p{opacity:.92;margin-top:6px}
     .band .btn{background:#fff;color:var(--navy)}.band .btn:hover{background:var(--sky)}
     .split{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
-    details{background:#fff;border:1px solid var(--line);border-radius:10px;margin-top:12px}
-    summary{cursor:pointer;list-style:none;padding:16px 22px;font-weight:600;color:var(--navy);display:flex;justify-content:space-between;gap:16px}
+    details{background:#fff;border:1px solid var(--line);border-radius:12px;margin-top:12px;transition:all .3s}
+    details:hover{border-color:var(--blue2);box-shadow:0 6px 18px rgba(11,78,162,.08)}
+    summary{cursor:pointer;list-style:none;padding:18px 24px;font-weight:600;color:var(--navy);display:flex;justify-content:space-between;gap:16px;font-size:.98rem}
     summary::-webkit-details-marker{display:none}
-    summary::after{content:"+";color:var(--green);font-size:1.3rem;line-height:1}
-    details[open] summary::after{content:"\2212"}
-    details p{padding:0 22px 18px;color:var(--mut);font-size:.95rem}
-    .cta{background:linear-gradient(118deg,var(--navy),var(--blue) 60%,var(--green) 140%);color:#fff;text-align:center;padding:66px 0}
+    summary::after{content:"+";color:var(--green);font-size:1.3rem;line-height:1;transition:transform .3s}
+    details[open] summary::after{content:"\2212";transform:rotate(180deg)}
+    details p{padding:0 24px 20px;color:var(--mut);font-size:.95rem}
+    .cta{background:linear-gradient(118deg,var(--navy),var(--blue) 60%,var(--green) 140%);color:#fff;text-align:center;padding:76px 0;position:relative;overflow:hidden}
+    .cta::before{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.05) 0%,transparent 60%);animation:ctaGlow 8s ease-in-out infinite}
+    @keyframes ctaGlow{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.1);opacity:.8}}
     .cta h2{color:#fff}.cta p{margin-top:10px;opacity:.93}.cta .row{justify-content:center}
     .cinfo{display:flex;gap:16px;align-items:flex-start}.cinfo .ico{margin:0;flex:none}
     footer{background:#071a2f;color:#b9c8dc;padding:56px 0 0;font-size:.92rem}
     footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:32px}
     footer h4{color:#fff;margin-bottom:12px;font-weight:600}footer li{padding:3px 0}footer a:hover{color:#fff}
     .copy{margin-top:40px;padding:18px 0;border-top:1px solid #16314f;text-align:center;font-size:.84rem}
-    #up{position:fixed;right:18px;bottom:22px;z-index:55;width:44px;height:44px;border-radius:50%;border:0;background:var(--blue);color:#fff;font-size:1.3rem;cursor:pointer;display:none;place-items:center;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+    #up{position:fixed;right:18px;bottom:22px;z-index:55;width:46px;height:46px;border-radius:50%;border:0;background:var(--blue);color:#fff;font-size:1.3rem;cursor:pointer;display:none;place-items:center;box-shadow:0 8px 20px rgba(11,78,162,.35);transition:all .3s}
+    #up:hover{background:var(--navy);transform:translateY(-3px)}
     #up.show{display:grid}
     .mbar{display:none}
+
+    /* ===== FEATURED SERVICE CARDS ===== */
+    .box.featured {
+      border: 2px solid var(--green);
+      background: linear-gradient(180deg, #f0fdf6 0%, #ffffff 60%);
+      box-shadow: 0 16px 40px rgba(20, 147, 90, 0.15);
+    }
+    .box.featured .ico { background: var(--green); color: #fff; }
+    .box.featured .more { color: var(--green); }
+    .box.featured:hover {
+      border-color: var(--green2);
+      box-shadow: 0 24px 50px rgba(20, 147, 90, 0.28);
+    }
+    .box.featured-2 {
+      border: 2px solid var(--blue);
+      background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 60%);
+      box-shadow: 0 16px 40px rgba(11, 78, 162, 0.12);
+    }
+    .box.featured-2 .ico { background: var(--blue); color: #fff; }
+    .box.featured-2 .more { color: var(--blue); }
+    .box.featured-2:hover {
+      border-color: var(--navy);
+      box-shadow: 0 24px 50px rgba(11, 78, 162, 0.24);
+    }
+    .box.featured-3 {
+      border: 2px solid var(--navy);
+      background: linear-gradient(180deg, #eef2f9 0%, #ffffff 60%);
+      box-shadow: 0 16px 40px rgba(10, 37, 64, 0.12);
+    }
+    .box.featured-3 .ico { background: var(--navy); color: #fff; }
+    .box.featured-3 .more { color: var(--navy); }
+    .box.featured-3:hover {
+      border-color: #051427;
+      box-shadow: 0 24px 50px rgba(10, 37, 64, 0.24);
+    }
 
     @media(max-width:860px){
       #burger{display:block}
@@ -149,59 +232,211 @@
     @media(prefers-reduced-motion:reduce){
       *{transition:none!important;scroll-behavior:auto!important}
       .strip .wrap{animation:none;flex-wrap:wrap;justify-content:center;width:100%}
+      .box{opacity:1;transform:none}
     }
 
-    /* ---- TWO-COLUMN HERO ---- */
+    /* ===== HERO — MOBILE (9:16 full-screen bg image) ===== */
     .hero {
-      background: linear-gradient(118deg,var(--navy) 0%,var(--blue) 58%,var(--green) 135%);
+      position: relative;
       color: #fff;
       padding: 0;
-      min-height: 80vh;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      max-height: 100vh;
+      min-height: 520px;
       display: flex;
-      align-items: center;
-      position: relative;
+      align-items: flex-start;
+      justify-content: center;
       overflow: hidden;
+      background: #0a0f1a;
+      text-align: center;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/mobile-hero.webp');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 0;
+      transform: scale(1.03);
+      animation: heroZoom 12s ease-in-out infinite alternate;
+    }
+    @keyframes heroZoom {
+      from { transform: scale(1.03); }
+      to   { transform: scale(1.08); }
     }
     .hero .wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 44px;
-      align-items: center;
-      padding: 60px 22px;
-      max-width: 1200px;
-    }
-    .hero-content { max-width: 560px; }
-    .hero-image-wrapper { display: flex; align-items: center; justify-content: center; }
-    .hero .hero-image {
-      width: 100%;
-      height: auto;
-      max-height: 70vh;
-      object-fit: cover;
-      border-radius: 16px;
-      box-shadow: 0 20px 44px rgba(0,0,0,.35);
+      position: relative;
+      z-index: 2;
       display: block;
+      width: 100%;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 56px 24px 40px;
     }
+    .hero-content { max-width: 100%; margin: 0 auto; }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      position: relative;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,1);
+    }
+    .hero-eyebrow::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 32px;
+      height: 2px;
+      background: rgba(255,255,255,.9);
+      border-radius: 2px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.7);
+    }
+    .hero h1 {
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      text-shadow: 0 3px 18px rgba(0,0,0,0.95), 0 2px 8px rgba(0,0,0,1), 0 1px 3px rgba(0,0,0,1);
+      max-width: 16ch;
+      margin: 0 auto;
+    }
+    .hero p {
+      margin: 14px auto 0;
+      font-size: clamp(0.88rem, 1.8vw, 1rem);
+      max-width: 42ch;
+      opacity: 1;
+      line-height: 1.6;
+      color: #ffffff;
+      text-shadow: 0 2px 14px rgba(0,0,0,0.95), 0 1px 5px rgba(0,0,0,1);
+    }
+    .hero .row { justify-content: center; margin-top: 24px; gap: 10px; }
+    .hero .btn {
+      padding: 12px 22px;
+      font-size: 0.9rem;
+      border-radius: 50px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      transition: all .25s cubic-bezier(.4,0,.2,1);
+    }
+    .hero .btn:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(0,0,0,0.5); }
+    .hero .btn.ghost { box-shadow: inset 0 0 0 1.5px rgba(255,255,255,0.9), 0 8px 20px rgba(0,0,0,0.3); }
+    .hero .btn.ghost:hover { background: rgba(255,255,255,0.15); box-shadow: inset 0 0 0 1.5px #fff, 0 14px 30px rgba(0,0,0,0.45); }
+
+    /* laptop image hidden on mobile */
+    .hero-laptop-img { display: none; }
+
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-eyebrow { animation: heroFadeIn .7s ease-out .1s both; }
+    .hero h1     { animation: heroFadeIn .7s ease-out .22s both; }
+    .hero p      { animation: heroFadeIn .7s ease-out .34s both; }
+    .hero .row   { animation: heroFadeIn .7s ease-out .46s both; }
+
     @media (max-width: 860px) {
-      .hero { min-height: auto; padding: 44px 0; }
-      .hero .wrap { grid-template-columns: 1fr; gap: 32px; padding: 0 22px; }
-      .hero-content { max-width: 100%; }
-      .hero .hero-image { max-height: none; border-radius: 12px; }
+      .hero {
+        aspect-ratio: 9 / 16;
+        min-height: 100svh;
+        max-height: none;
+        align-items: flex-start;
+      }
+      .hero .wrap { padding: 80px 20px 60px; margin: 0 auto; max-width: 100%; }
+      .hero h1 { max-width: 100%; }
+      .hero p { max-width: 100%; }
+      .hero .row { flex-direction: column; align-items: center; width: 100%; }
+      .hero .btn { width: 100%; max-width: 300px; }
     }
-    @media (min-width: 1400px) { .hero .wrap { max-width: 1300px; } }
+    @media (max-width: 480px) {
+      .hero .wrap { padding: 72px 18px 50px; }
+      .hero-eyebrow { font-size: 0.65rem; letter-spacing: 2px; }
+      .hero h1 { font-size: clamp(1.3rem, 7vw, 1.8rem); max-width: 100%; }
+      .hero p  { font-size: 0.86rem; }
+      .hero .btn { padding: 11px 20px; font-size: 0.85rem; }
+    }
+
+    /* ===== HERO — LAPTOP / DESKTOP (100vh full screen) ===== */
+    @media (min-width: 861px) {
+      .hero {
+        aspect-ratio: auto;
+        min-height: 100vh;         /* full screen height */
+        max-height: none;
+        align-items: center;
+        text-align: left;
+        background: linear-gradient(118deg,#0a2540 0%,#0b4ea2 58%,#14935a 135%);
+        padding: 100px 0 60px;     /* top padding clears fixed nav */
+      }
+      .hero::before { display: none; }
+      .hero .wrap {
+        display: grid;
+        grid-template-columns: 1.05fr 1fr;
+        gap: 56px;
+        align-items: center;
+        max-width: 1200px;
+        padding: 0 30px;
+        height: 100%;
+      }
+      .hero-content {
+        max-width: 100%;
+        text-align: left;
+      }
+      .hero-eyebrow { margin-bottom: 16px; }
+      .hero-eyebrow::after {
+        left: 0;
+        transform: none;
+      }
+      .hero h1 {
+        font-size: clamp(2.2rem, 3.6vw, 3.2rem);
+        line-height: 1.1;
+        max-width: 20ch;
+        margin: 0;
+      }
+      .hero p {
+        font-size: 1.1rem;
+        max-width: 52ch;
+        margin: 20px 0 0;
+      }
+      .hero .row {
+        justify-content: flex-start;
+        margin-top: 34px;
+        gap: 14px;
+      }
+      .hero .btn {
+        padding: 15px 30px;
+        font-size: 1rem;
+        border-radius: 50px;
+      }
+      .hero-laptop-img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: 68vh;
+        object-fit: cover;
+        border-radius: 20px;
+        box-shadow: 0 30px 60px rgba(0,0,0,.4);
+        animation: heroFadeIn .9s ease-out .3s both;
+      }
+    }
+
+    @media (min-width: 1400px) {
+      .hero .wrap { max-width: 1300px; }
+      .hero h1 { font-size: clamp(2.4rem, 3.4vw, 3.4rem); }
+      .hero-laptop-img { max-height: 72vh; }
+    }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"SPIC Multi Cleaning Service","url":"https://www.spicclean.in","telephone":"+919994412222","address":{"@type":"PostalAddress","streetAddress":"Mettupalayam Bus Stand","addressLocality":"Tirupur","addressCountry":"IN"},"openingHours":"Mo-Su 00:00-23:59","description":"Plumbing, electrical, water tank cleaning, waterproofing, painting and renovation."}</script>
 </head>
 <body>
-
-  <div class="top">
-    <div class="wrap">
-      <span>Available 24/7 for plumbing, electrical and leakage emergencies</span>
-      <a href="tel:+919994412222">
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-        Call +91 99944 12222
-      </a>
-    </div>
-  </div>
 
   <header class="nav">
     <div class="wrap">
@@ -218,23 +453,23 @@
     </div>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO: mobile = 9:16 bg image, centered; laptop = full-screen left text + right image -->
   <section class="hero">
     <div class="wrap">
       <div class="hero-content">
-        <h1>Plumbing, electrical, cleaning and waterproofing from one reliable team</h1>
-        <p>Trained professionals for homes and businesses in Tirupur. Call any time for emergencies, or book a planned visit online.</p>
+        <span class="hero-eyebrow">Tirupur's trusted team</span>
+        <h1>Plumbing, electrical, cleaning &amp; waterproofing</h1>
+        <p>One reliable team for homes and businesses. 24/7 emergency service.</p>
         <div class="row">
           <a class="btn" href="tel:+919994412222">
             <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-            Call +91 99944 12222
+            Call now
           </a>
-          <a class="btn ghost" href="services.html">View services</a>
+          <a class="btn ghost" href="services.html">Services</a>
         </div>
       </div>
-      <div class="hero-image-wrapper">
-        <img class="hero-image" src="assets/hero.webp" alt="SPIC Multi Cleaning Service team at work in Tirupur">
-      </div>
+      <!-- Separate laptop hero image (only visible on desktop) -->
+      <img class="hero-laptop-img" src="assets/laptop-hero.webp" alt="SPIC Multi Cleaning Service team at work in Tirupur" loading="eager">
     </div>
   </section>
 
@@ -279,19 +514,52 @@
     </div>
   </div>
 
+  <!-- SERVICES SECTION -->
   <section class="sec">
     <div class="wrap">
       <h2>Services for every part of your property</h2>
       <p class="lead">Choose a service to see what is included.</p>
       <div class="grid g4">
+
+        <!-- 1st: WATER TANK CLEANING -->
+        <a class="box featured" href="tank-cleaning.html">
+          <div class="ico"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3zM4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/></svg></div>
+          <h3>Water tank cleaning</h3>
+          <p>Sump and Sintex tank cleaning with high-pressure sanitising.</p>
+          <span class="more">Learn more →</span>
+        </a>
+
+        <!-- 2nd: HOUSE & KITCHEN CLEANING -->
+        <a class="box featured-2" href="services.html#cleaning">
+          <div class="ico"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
+          <h3>House and kitchen cleaning</h3>
+          <p>Deep cleaning for homes, kitchens and commercial spaces.</p>
+          <span class="more">Learn more →</span>
+        </a>
+
+        <!-- 3rd: DR LEAKAGE / WATERPROOFING -->
+        <a class="box featured-3" href="services.html#waterproofing">
+          <div class="ico"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>Waterproofing</h3>
+          <p>Roof and tank leakage treatment by our Doctor Leakage team.</p>
+          <span class="more">Learn more →</span>
+        </a>
+
+        <!-- 4th: PLUMBING -->
         <a class="box" href="services.html#plumbing"><div class="ico"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7l5.7 5.7a8 8 0 1 1-11.4 0z"/></svg></div><h3>Plumbing</h3><p>Leaks, blocked drains, well pump, water heater and water line repairs.</p><span class="more">Learn more</span></a>
+
+        <!-- 5th: ELECTRICAL -->
         <a class="box" href="services.html#electrical"><div class="ico"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Electrical</h3><p>Wiring, rewiring, circuit breakers, fault repair and solar panel installation.</p><span class="more">Learn more</span></a>
-        <a class="box" href="tank-cleaning.html"><div class="ico"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3zM4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/></svg></div><h3>Water tank cleaning</h3><p>Sump and Sintex tank cleaning with high-pressure sanitising.</p><span class="more">Learn more</span></a>
-        <a class="box" href="services.html#waterproofing"><div class="ico"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Waterproofing</h3><p>Roof and tank leakage treatment by our Doctor Leakage team.</p><span class="more">Learn more</span></a>
+
+        <!-- 6th: PAINTING -->
         <a class="box" href="services.html#painting"><div class="ico"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h12a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM18 6h2v5H11v3M10 14h2v7h-2z"/></svg></div><h3>Painting</h3><p>Interior and exterior painting with careful surface preparation.</p><span class="more">Learn more</span></a>
+
+        <!-- 7th: RENOVATION -->
         <a class="box" href="services.html#renovation"><div class="ico"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h3>Renovation</h3><p>Remodelling, carpentry, dry lining, decorating and demolition.</p><span class="more">Learn more</span></a>
-        <a class="box" href="services.html#cleaning"><div class="ico"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div><h3>House and kitchen cleaning</h3><p>Deep cleaning for homes, kitchens and commercial spaces.</p><span class="more">Learn more</span></a>
+
+        <!-- 8th: CONSTRUCTION -->
         <a class="box" href="services.html#construction"><div class="ico"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M14 9h1M9 13h1M14 13h1M9 17h1M14 17h1"/></svg></div><h3>Construction</h3><p>Residential and commercial building work.</p><span class="more">Learn more</span></a>
+
       </div>
     </div>
   </section>
@@ -310,7 +578,7 @@
 
   <section class="sec">
     <div class="wrap">
-      <h2>Why customers choose SPIC</h2>
+      <h2>Why customers choose SPICUP</h2>
       <div class="grid g4">
         <div class="box h"><div class="ico"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zM9 12l2 2 4-4"/></svg></div><h3>Trained and verified</h3><p>Skilled people for each trade, ready for emergencies.</p></div>
         <div class="box h"><div class="ico b"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10zM2 21c0-3 1.9-5.4 5.3-6.4"/></svg></div><h3>Eco-friendly methods</h3><p>Cleaning that protects your family and the environment.</p></div>
@@ -333,7 +601,7 @@
     <div class="wrap split">
       <div><h2>Frequently asked questions</h2><p class="lead">Quick answers before you call.</p></div>
       <div>
-        <details><summary>Do you provide emergency service?</summary><p>Yes. Call +91 99944 12222 at any hour. We are available 24/7 for plumbing, electrical and leakage emergencies.</p></details>
+        <details><summary>Do you provide emergency service?</summary><p>Yes. Call +91 99944 12222 at any hour. We are available 24/7 for water tank cleaning, house cleaning, plumbing, electrical and leakage emergencies.</p></details>
         <details><summary>Do you work for homes and businesses?</summary><p>Yes. We handle both residential and commercial plumbing, electrical, cleaning, waterproofing and renovation work.</p></details>
         <details><summary>How do I book a service?</summary><p>Call us, message us on WhatsApp, or fill in the booking form on this site. We will confirm the details and arrange a visit.</p></details>
         <details><summary>How often should a water tank be cleaned?</summary><p>Many households clean their tanks about every six months. Our team can inspect yours and advise on the right interval.</p></details>
@@ -355,9 +623,9 @@
 
   <footer>
     <div class="wrap">
-      <div><h4>SPIC Multi Cleaning Service</h4><p>Plumbing, electrical, water tank cleaning, waterproofing, painting and renovation under one roof. Available 24/7.</p></div>
+      <div><h4>SPICUP Multi Cleaning Service</h4><p>Water tank cleaning, house cleaning, waterproofing, plumbing, electrical, painting and renovation under one roof. Available 24/7.</p></div>
       <div><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="tank-cleaning.html">Tank cleaning</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div><h4>Services</h4><ul><li><a href="services.html#plumbing">Plumbing</a></li><li><a href="services.html#electrical">Electrical</a></li><li><a href="tank-cleaning.html">Water tank cleaning</a></li><li><a href="services.html#waterproofing">Waterproofing</a></li><li><a href="services.html#painting">Painting</a></li></ul></div>
+      <div><h4>Services</h4><ul><li><a href="tank-cleaning.html">Water tank cleaning</a></li><li><a href="services.html#cleaning">House cleaning</a></li><li><a href="services.html#waterproofing">Waterproofing</a></li><li><a href="services.html#plumbing">Plumbing</a></li><li><a href="services.html#electrical">Electrical</a></li></ul></div>
       <div><h4>Contact</h4><ul><li><a href="tel:+919994412222">+91 99944 12222</a></li><li><a href="tel:+918438499899">+91 84384 99899 (tank cleaning)</a></li><li>Mettupalayam Bus Stand, Tirupur</li></ul></div>
     </div>
     <div class="copy">&copy; <span id="yr">2026</span> SPICUP Multi Cleaning Service. All rights reserved.</div>
@@ -389,6 +657,23 @@
       document.querySelectorAll('[data-c]').forEach(b => b.hidden = c.dataset.f !== 'all' && b.dataset.c !== c.dataset.f);
     });
     document.getElementById('yr').textContent = new Date().getFullYear();
+
+    /* ===== SCROLL REVEAL ANIMATION ===== */
+    const revealEls = document.querySelectorAll('.box, .band, details, .cta h2, .cta p');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const parent = el.parentNode;
+          const siblings = Array.from(parent.children).filter(c => c.classList.contains('box'));
+          const idx = siblings.indexOf(el);
+          const delay = idx >= 0 ? (idx % 4) * 100 : 0;
+          setTimeout(() => el.classList.add('reveal'), delay);
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(el => io.observe(el));
   </script>
 </body>
 </html>
