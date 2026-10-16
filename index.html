@@ -429,7 +429,9 @@ body.menu-open{overflow:hidden}
   position:sticky;top:calc(var(--nav-h) + 24px);margin:0 auto 32px;
   border-radius:26px;background:#fff;border:1px solid rgba(229,231,235,.9);
   box-shadow:0 1px 2px rgba(16,24,40,.04),0 12px 32px rgba(16,24,40,.08),0 32px 64px -16px rgba(16,24,40,.10);
-  width:100%;aspect-ratio:1 / 1;max-height:620px;
+  width:100%;
+  /* ✅ CHANGED: aspect-ratio and max-height removed, min-height added */
+  min-height: 620px;
   display:flex;flex-direction:column;overflow:hidden;
   transform-origin:top center;
   transition:transform .55s cubic-bezier(.22,1,.36,1),box-shadow .55s cubic-bezier(.22,1,.36,1),opacity .5s ease;
@@ -671,7 +673,7 @@ body.menu-open{overflow:hidden}
   .services{padding:60px 22px 20px}
   .section-sub{margin-bottom:40px}
   .stack-wrap{max-width:520px}
-  .stack-card{top:calc(var(--nav-h) + 14px);margin-bottom:20px;border-radius:22px;aspect-ratio:1 / 1;max-height:540px}
+  .stack-card{top:calc(var(--nav-h) + 14px);margin-bottom:20px;border-radius:22px;min-height:540px}
   .stack-image{border-radius:22px 22px 0 0}
   .stack-num{top:16px;left:16px;min-width:50px;height:50px;padding:0 14px;font-size:18px;border-radius:16px}
   .stack-body{padding:32px 28px 26px}
@@ -750,17 +752,17 @@ body.menu-open{overflow:hidden}
   .section-sub{font-size:14px;margin:12px 4px 52px 4px;line-height:1.6}
 
   .stack-wrap{max-width:100%}
-  .stack-card{top:calc(var(--nav-h) + 10px);margin-bottom:16px;border-radius:20px;aspect-ratio:1 / 1;max-height:460px}
+  .stack-card{top:calc(var(--nav-h) + 10px);margin-bottom:16px;border-radius:20px;min-height:480px}
   .stack-image{flex:0 0 50%;border-radius:20px 20px 0 0}
   .stack-num{top:14px;left:14px;min-width:44px;height:44px;padding:0 12px;font-size:16px;border-radius:14px}
   .stack-num::before{width:5px;height:5px}
 
-  .stack-body{padding:32px 26px 26px}
+  .stack-body{padding:24px 20px 20px}
   .stack-text{gap:14px}
   .stack-text h3{font-size:17px;margin-bottom:12px;letter-spacing:-.2px;line-height:1.35}
   .stack-text p{font-size:13px;line-height:1.65;color:#5a6273}
 
-  .stack-cta{margin-top:22px;padding-top:18px}
+  .stack-cta{margin-top:18px;padding-top:16px}
   .stack-cta .btn{font-size:13px;padding:12px 18px}
 
   .stack-card.is-covered{transform:scale(.96);opacity:.65}
