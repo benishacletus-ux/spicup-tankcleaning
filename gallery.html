@@ -489,7 +489,9 @@ body.menu-open{overflow:hidden}
 /* ---------- FOOTER ---------- */
 .footer{padding:50px 40px 28px;background:linear-gradient(180deg,#fff,#e8ecff);margin-top:40px}
 .footer-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:26px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:16px}
+.footer-logos{display:flex;align-items:center;gap:30px;flex-wrap:wrap}
 .footer-top .logo img{height:56px}
+.footer-logo-doctor img{height:56px;width:auto;display:block;object-fit:contain;}
 .footer-social{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
 .footer-social a{font-size:15px;transition:color .25s,transform .25s;display:inline-flex;align-items:center;gap:6px;font-weight:500}
 .footer-social a[aria-label="Instagram"]:hover{color:var(--ig);transform:scale(1.08)}
@@ -537,7 +539,9 @@ body.menu-open{overflow:hidden}
 
   .lb-box.lb-video{width:min(340px,86vw)}
   .lb-box.lb-poster{width:min(520px,86vw)}
-  .footer-top .logo img{height:48px}
+  
+  .footer-logos{gap:16px;}
+  .footer-top .logo img, .footer-logo-doctor img{height:44px}
 }
 
 @media(max-width:520px){
@@ -588,7 +592,8 @@ body.menu-open{overflow:hidden}
   .lb-box.lb-poster{width:min(400px,90vw);border-radius:16px}
   .lb-close{width:40px;height:40px;top:14px;right:14px;font-size:20px}
 
-  .footer-top .logo img{height:44px}
+  .footer-logos{gap:12px;}
+  .footer-top .logo img, .footer-logo-doctor img{height:38px}
   .footer{padding:36px 20px 22px}
   .footer-social{gap:16px}
   .footer-social a{font-size:14px}
@@ -675,33 +680,44 @@ body.menu-open{overflow:hidden}
 <section class="grid grid-videos" id="gridVideos"></section>
 
 <!-- ============================================================
-     POSTERS SECTION — 13 posters (1:1 square)
+     POSTERS SECTION — 15 posters (1:1 square)
      ============================================================ -->
 <div class="section-label reveal reveal-up">
   <span class="dot"></span>
   Photos
-  <span class="count">13 posters</span>
+  <span class="count">15 posters</span>
 </div>
 <section class="grid grid-posters" id="gridPosters"></section>
 
+<!-- ============================================================
+     SOCIAL MEDIA SECTION — UPDATED LINKS
+     ============================================================ -->
 <section class="insta">
   <span class="insta-tag">Follow Our Journey</span>
   <h2>See Our Work on Social</h2>
-  <p>Follow <a href="https://www.instagram.com/spicmulticleaning" target="_blank" rel="noopener">@spicmulticleaning</a> for daily updates, cleaning tips, and behind-the-scenes content from our professional team.</p>
+  <p>Follow <a href="https://www.instagram.com/spicupmulticleaningservice?vrfl=Ynh4ajd1aTR6cG0=" target="_blank" rel="noopener">@spicupmulticleaningservice</a> for daily updates, cleaning tips, and behind-the-scenes content from our professional team.</p>
   <div class="insta-buttons">
-    <a href="https://www.instagram.com/spicmulticleaning" target="_blank" rel="noopener" class="btn btn-ig">
+    <a href="https://www.instagram.com/spicupmulticleaningservice?vrfl=Ynh4ajd1aTR6cG0=" target="_blank" rel="noopener" class="btn btn-ig">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0">
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
       </svg>
-      Follow on Instagram
+      SPICUP Instagram
     </a>
-    <a href="https://www.facebook.com/share/19jbzCYvgu/" target="_blank" rel="noopener" class="btn btn-fb">
+    <a href="https://www.instagram.com/doctor_leakage?cplk=Z2dlcDdxMGpxZmYz" target="_blank" rel="noopener" class="btn btn-ig" style="background:linear-gradient(135deg,#405DE6,#5851DB,#833AB4,#C13584,#E1306C,#FD1D1D)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+      </svg>
+      Doctor Leakage
+    </a>
+    <a href="https://www.facebook.com/share/1EZWEnyzPk/" target="_blank" rel="noopener" class="btn btn-fb">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0">
         <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
       </svg>
-      Follow on Facebook
+      Facebook
     </a>
   </div>
 </section>
@@ -730,23 +746,40 @@ body.menu-open{overflow:hidden}
 </main>
 
 <!-- ============================================================
-     FOOTER
+     FOOTER — UPDATED WITH 2 LOGOS & NEW LINKS
      ============================================================ -->
 <footer class="footer">
   <div class="footer-top">
-    <a href="index.html" class="logo" aria-label="SPICUP Multi Cleaning Service home">
-      <img src="assets/logo.webp" alt="SPICUP Multi Cleaning Service logo">
-    </a>
+    
+    <!-- LOGOS CONTAINER (SPICUP + DOCTOR LEAKAGE) -->
+    <div class="footer-logos">
+      <a href="index.html" class="logo" aria-label="SPICUP Multi Cleaning Service home">
+        <img src="assets/logo.webp" alt="SPICUP Multi Cleaning Service logo">
+      </a>
+      <a href="https://www.instagram.com/doctor_leakage" target="_blank" rel="noopener" class="footer-logo-doctor" aria-label="Doctor Leakage">
+        <img src="assets/l-logo.webp" alt="Doctor Leakage logo">
+      </a>
+    </div>
+
+    <!-- SOCIAL LINKS -->
     <div class="footer-social">
-      <a href="https://www.instagram.com/spicmulticleaning" target="_blank" rel="noopener" aria-label="Instagram">
+      <a href="https://www.instagram.com/spicupmulticleaningservice?vrfl=Ynh4ajd1aTR6cG0=" target="_blank" rel="noopener" aria-label="SPICUP Instagram">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
           <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
           <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
         </svg>
-        Instagram
+        SPICUP IG
       </a>
-      <a href="https://www.facebook.com/share/19jbzCYvgu/" target="_blank" rel="noopener" aria-label="Facebook">
+      <a href="https://www.instagram.com/doctor_leakage?cplk=Z2dlcDdxMGpxZmYz" target="_blank" rel="noopener" aria-label="Doctor Leakage Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+        Doctor Leakage IG
+      </a>
+      <a href="https://www.facebook.com/share/1EZWEnyzPk/" target="_blank" rel="noopener" aria-label="Facebook">
         <svg viewBox="0 0 24 24" fill="currentColor">
           <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
         </svg>
@@ -754,6 +787,7 @@ body.menu-open{overflow:hidden}
       </a>
     </div>
   </div>
+  
   <div class="footer-bottom">
     <nav>
       <a href="about.html">About</a>
@@ -778,7 +812,7 @@ body.menu-open{overflow:hidden}
    GALLERY ITEMS
    ------------------------------------------------------------
    VIDEO  — 5 videos in assets/  (displayed as 9:16 portrait)
-   POSTER — 13 posters in assets/ (displayed as 1:1 square)
+   POSTER — 15 posters in assets/ (displayed as 1:1 square)
    ============================================================ */
 
 const VIDEOS = [
@@ -791,6 +825,7 @@ const VIDEOS = [
 
 const POSTERS = [
   { type:'image', src:'assets/gallery-1.webp',  cap:'' },
+  { type:'image', src:'assets/gallery-14.webp', cap:'' },
   { type:'image', src:'assets/gallery-2.webp',  cap:'' },
   { type:'image', src:'assets/gallery-3.webp',  cap:'' },
   { type:'image', src:'assets/gallery-4.webp',  cap:'' },
@@ -802,6 +837,7 @@ const POSTERS = [
   { type:'image', src:'assets/gallery-10.webp', cap:'' },
   { type:'image', src:'assets/gallery-11.webp', cap:'' },
   { type:'image', src:'assets/gallery-12.webp', cap:'' },
+  { type:'image', src:'assets/gallery-15.webp', cap:'' },
   { type:'image', src:'assets/gallery-13.webp', cap:'' }
 ];
 
@@ -987,8 +1023,9 @@ document.querySelectorAll('.btn').forEach(btn => {
       "addressCountry": "IN"
     },
     "sameAs": [
-      "https://www.instagram.com/spicmulticleaning",
-      "https://www.facebook.com/share/19jbzCYvgu/"
+      "https://www.instagram.com/spicupmulticleaningservice",
+      "https://www.instagram.com/doctor_leakage",
+      "https://www.facebook.com/share/1EZWEnyzPk/"
     ]
   }
 }

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Us – SPICUP Multi Cleaning Service | Tirupur's Trusted Cleaning Team</title>
-<meta name="description" content="Learn about SPICUP Multi Cleaning Service — Tirupur's trusted team for water tank cleaning, solar panel cleaning, plumbing & more. 500+ happy customers, 24/7 service.">
+<meta name="description" content="Learn about SPICUP Multi Cleaning Service — Tirupur's trusted team for water tank cleaning, solar panel cleaning, plumbing & more. 10+ years experience, 500+ happy customers, 24/7 service.">
 <meta name="keywords" content="about SPICUP cleaning service, cleaning company Tirupur, water tank cleaning team Tirupur, professional cleaners Tirupur">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.spicclean.in/about.html">
@@ -12,7 +12,7 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="About Us – SPICUP Multi Cleaning Service">
-<meta property="og:description" content="Tirupur's trusted team for water tank cleaning, solar panel cleaning, plumbing & more. 500+ happy customers.">
+<meta property="og:description" content="Tirupur's trusted team for water tank cleaning, solar panel cleaning, plumbing & more. 10+ years experience, 500+ happy customers.">
 <meta property="og:url" content="https://www.spicclean.in/about.html">
 <meta property="og:site_name" content="SPICUP Multi Cleaning Service">
 
@@ -231,7 +231,9 @@ body.menu-open{overflow:hidden}
 /* ---------- FOOTER ---------- */
 .footer{padding:50px 40px 28px;background:linear-gradient(180deg,#fff,#e8ecff)}
 .footer-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:26px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:16px}
+.footer-logos{display:flex;align-items:center;gap:30px;flex-wrap:wrap}
 .footer-top .logo img{height:56px}
+.footer-logo-doctor img{height:56px;width:auto;display:block;object-fit:contain;}
 .footer-social{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
 .footer-social a{font-size:14px;transition:color .25s,transform .25s;display:inline-flex;align-items:center;gap:6px;font-weight:500}
 .footer-social a[aria-label="Instagram"]:hover{color:var(--ig);transform:scale(1.08)}
@@ -253,7 +255,9 @@ body.menu-open{overflow:hidden}
   .mv-elegant{grid-template-columns:1fr;gap:18px}
   .steps{grid-template-columns:1fr 1fr;gap:34px}
   .steps::before{display:none}
-  .footer-top .logo img{height:48px}
+  
+  .footer-logos{gap:16px;}
+  .footer-top .logo img, .footer-logo-doctor img{height:44px}
 }
 
 @media(max-width:520px){
@@ -285,7 +289,8 @@ body.menu-open{overflow:hidden}
   .contact h2{font-size:26px}
   .phone{font-size:15px;padding:14px 20px}
 
-  .footer-top .logo img{height:44px}
+  .footer-logos{gap:12px;}
+  .footer-top .logo img, .footer-logo-doctor img{height:38px}
   .footer-social{gap:16px}
   .footer-social a{font-size:13px}
 }
@@ -358,6 +363,7 @@ body.menu-open{overflow:hidden}
   <span class="tagline">About Us</span>
   <h1>A Local Team That Cares About Your Home</h1>
   <p>Simple, honest cleaning and repair services — delivered with care, every time.</p>
+  <p style="margin-top:12px; font-size:15px; font-weight:600; color:var(--green);">10+ Years of Experience</p>
 </section>
 
 <!-- ELEGANT ABOUT -->
@@ -365,7 +371,7 @@ body.menu-open{overflow:hidden}
   <div class="divider reveal reveal-up"></div>
   <h2 class="reveal reveal-up">Who We Are</h2>
   <p class="intro reveal reveal-up">
-    SPICUP Multi Cleaning Service is a <strong>locally rooted team based in Tirupur</strong>, dedicated to keeping your home and workplace clean, safe, and stress-free. From water tank cleaning to plumbing, solar panels to painting — we handle it all under one roof.
+    SPICUP Multi Cleaning Service is a <strong>locally rooted team based in Tirupur with over 10 years of experience</strong>, dedicated to keeping your home and workplace clean, safe, and stress-free. From water tank cleaning to plumbing, solar panels to painting — we handle it all under one roof.
   </p>
   <p class="closing reveal reveal-up">
     No shortcuts. No hidden charges. Just honest work, done right.
@@ -443,23 +449,40 @@ body.menu-open{overflow:hidden}
 </main>
 
 <!-- ============================================================
-     FOOTER — with logo image + social links
+     FOOTER — WITH 2 LOGOS & NEW LINKS
      ============================================================ -->
 <footer class="footer">
   <div class="footer-top">
-    <a href="index.html" class="logo" aria-label="SPICUP Multi Cleaning Service home">
-      <img src="assets/logo.webp" alt="SPICUP Multi Cleaning Service logo">
-    </a>
+    
+    <!-- LOGOS CONTAINER (SPICUP + DOCTOR LEAKAGE) -->
+    <div class="footer-logos">
+      <a href="index.html" class="logo" aria-label="SPICUP Multi Cleaning Service home">
+        <img src="assets/logo.webp" alt="SPICUP Multi Cleaning Service logo">
+      </a>
+      <a href="https://www.instagram.com/doctor_leakage" target="_blank" rel="noopener" class="footer-logo-doctor" aria-label="Doctor Leakage">
+        <img src="assets/l-logo.webp" alt="Doctor Leakage logo">
+      </a>
+    </div>
+
+    <!-- SOCIAL LINKS -->
     <div class="footer-social">
-      <a href="https://www.instagram.com/spicmulticleaning" target="_blank" rel="noopener" aria-label="Instagram">
+      <a href="https://www.instagram.com/spicupmulticleaningservice?vrfl=Ynh4ajd1aTR6cG0=" target="_blank" rel="noopener" aria-label="SPICUP Instagram">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
           <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
           <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
         </svg>
-        Instagram
+        SPICUP IG
       </a>
-      <a href="https://www.facebook.com/share/19jbzCYvgu/" target="_blank" rel="noopener" aria-label="Facebook">
+      <a href="https://www.instagram.com/doctor_leakage?cplk=Z2dlcDdxMGpxZmYz" target="_blank" rel="noopener" aria-label="Doctor Leakage Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+        Doctor Leakage IG
+      </a>
+      <a href="https://www.facebook.com/share/1EZWEnyzPk/" target="_blank" rel="noopener" aria-label="Facebook">
         <svg viewBox="0 0 24 24" fill="currentColor">
           <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
         </svg>
@@ -467,6 +490,7 @@ body.menu-open{overflow:hidden}
       </a>
     </div>
   </div>
+  
   <div class="footer-bottom">
     <nav>
       <a href="index.html">Home</a>
@@ -604,8 +628,9 @@ document.querySelectorAll('.btn').forEach(btn=>{
       "closes": "23:59"
     },
     "sameAs": [
-      "https://www.instagram.com/spicmulticleaning",
-      "https://www.facebook.com/share/19jbzCYvgu/"
+      "https://www.instagram.com/spicupmulticleaningservice",
+      "https://www.instagram.com/doctor_leakage",
+      "https://www.facebook.com/share/1EZWEnyzPk/"
     ]
   }
 }
