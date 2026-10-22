@@ -31,7 +31,8 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Poppins',system-ui,sans-serif;color:var(--ink);background:#fff;max-width:1280px;margin:0 auto;line-height:1.6;overflow-x:hidden;font-size:16px;font-weight:400;letter-spacing:.1px}
+/* UPDATED: Removed max-width, added width 100% */
+body{font-family:'Poppins',system-ui,sans-serif;color:var(--ink);background:#fff;width:100%;margin:0;line-height:1.6;overflow-x:hidden;font-size:16px;font-weight:400;letter-spacing:.1px}
 a{text-decoration:none;color:inherit}
 .accent{color:var(--blue)}
 
@@ -91,8 +92,9 @@ a{text-decoration:none;color:inherit}
 }
 
 /* ---------- NAV ---------- */
-.nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px 22px;background:rgba(250,250,250,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:0 0 18px 18px;transition:box-shadow .3s,padding .3s}
-.nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.08);padding:8px 22px}
+/* UPDATED: Increased left/right padding to 40px */
+.nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px 40px;background:rgba(250,250,250,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:0 0 18px 18px;transition:box-shadow .3s,padding .3s}
+.nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.08);padding:8px 40px}
 .nav.scrolled .logo img{height:46px}
 
 .nav-links{display:flex;gap:30px;font-size:14px;font-weight:500;margin-right:auto;margin-left:30px}
@@ -166,13 +168,15 @@ body.menu-open{overflow:hidden}
 .wa-float:hover .wa-tip{opacity:1;transform:translateY(-50%) translateX(0)}
 
 /* ---------- BREADCRUMB ---------- */
-.breadcrumb{max-width:1280px;margin:0 auto;padding:18px 26px 0;font-size:13px;color:#8a92a3}
+/* UPDATED: Removed max-width and margin auto, added padding */
+.breadcrumb{padding:18px 40px 0;font-size:13px;color:#8a92a3}
 .breadcrumb a{color:var(--blue);font-weight:500}
 .breadcrumb a:hover{text-decoration:underline}
 .breadcrumb span{margin:0 8px;color:#c0c6d1}
 
 /* ---------- PAGE HEAD ---------- */
-.head{text-align:center;padding:70px 24px 50px;background:linear-gradient(180deg,#dfe6ff 0%,#eef1ff 60%,#fff 100%);background-size:200% 200%;animation:gradientShift 12s ease infinite;position:relative;overflow:hidden;border-radius:0 0 24px 24px}
+/* UPDATED: Removed border-radius so it stretches edge-to-edge */
+.head{text-align:center;padding:70px 24px 50px;background:linear-gradient(180deg,#dfe6ff 0%,#eef1ff 60%,#fff 100%);background-size:200% 200%;animation:gradientShift 12s ease infinite;position:relative;overflow:hidden;border-radius:0}
 .head::before{content:'';position:absolute;top:-50px;right:-50px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(63,154,28,.14),transparent 70%);animation:float 7s ease-in-out infinite}
 .head::after{content:'';position:absolute;bottom:-40px;left:-40px;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle,rgba(43,58,159,.12),transparent 70%);animation:float 9s ease-in-out infinite reverse}
 .head h1{font-size:clamp(30px,4.5vw,46px);font-weight:700;letter-spacing:-1.2px;line-height:1.2;max-width:720px;margin:0 auto;position:relative;z-index:2;color:var(--blue-dark);animation:fadeUp .7s ease both}
@@ -333,7 +337,8 @@ textarea{min-height:110px;resize:vertical;line-height:1.55;font-size:14px}
 .insta .btn-fb{font-size:15px;padding:12px 26px;font-weight:600}
 
 /* ---------- Footer ---------- */
-.footer{padding:50px 40px 28px;background:linear-gradient(180deg,#fff,#e8ecff);margin-top:70px}
+/* UPDATED: Increased padding to 60px to match header spacing */
+.footer{padding:50px 60px 28px;background:linear-gradient(180deg,#fff,#e8ecff);margin-top:70px}
 .footer-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:26px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:16px}
 .footer-logos{display:flex;align-items:center;gap:30px;flex-wrap:wrap}
 .footer-top .logo img{height:56px}
@@ -352,6 +357,9 @@ textarea{min-height:110px;resize:vertical;line-height:1.55;font-size:14px}
    RESPONSIVE
    ============================================================ */
 @media(max-width:900px){
+  /* UPDATED: Reduced header padding back down for tablets */
+  .nav{padding:12px 22px}
+  .nav.scrolled{padding:8px 22px}
   .nav-links{display:none}
   .nav-toggle{display:block}
   .nav > .btn-blue{display:none}
@@ -374,23 +382,29 @@ textarea{min-height:110px;resize:vertical;line-height:1.55;font-size:14px}
   .insta h2{font-size:22px}
   .insta p{font-size:14px}
 
+  /* UPDATED: Reduced footer padding for tablets */
+  .footer{padding:50px 22px 28px}
   .footer-logos{gap:16px;}
   .footer-top .logo img, .footer-logo-doctor img{height:44px}
 }
 
 @media(max-width:520px){
   :root{--nav-h:62px}
+  /* UPDATED: Reduced header padding for mobile */
   .nav{padding:10px 16px}
   .nav.scrolled{padding:8px 16px}
   .logo img{height:42px}
   .nav.scrolled .logo img{height:38px}
   .logo small{display:none}
 
+  /* UPDATED: Reduced breadcrumb padding for mobile */
+  .breadcrumb{padding:16px 16px 0}
+
   .wa-float{right:16px;bottom:16px;width:54px;height:54px}
   .wa-float svg{width:26px;height:26px}
   .wa-float .wa-tip{display:none}
 
-  .head{padding:50px 18px 36px;border-radius:0 0 20px 20px}
+  .head{padding:50px 18px 36px}
   .head h1{font-size:24px;letter-spacing:-.8px}
   .head p{font-size:13.5px}
   .head .badge{font-size:11px;padding:6px 14px}
@@ -421,6 +435,7 @@ textarea{min-height:110px;resize:vertical;line-height:1.55;font-size:14px}
   .insta-buttons{flex-direction:column;gap:10px;width:100%;max-width:320px;margin:0 auto}
   .insta-buttons .btn{width:100%;justify-content:center;padding:13px 20px;font-size:14px}
 
+  /* UPDATED: Reduced footer padding for mobile */
   .footer{padding:36px 20px 22px;margin-top:50px}
   .footer-logos{gap:12px;}
   .footer-top .logo img, .footer-logo-doctor img{height:38px}

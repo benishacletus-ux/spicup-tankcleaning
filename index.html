@@ -32,7 +32,8 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Poppins',system-ui,sans-serif;color:var(--ink);background:#fff;max-width:1280px;margin:0 auto;line-height:1.6;overflow-x:hidden;font-size:16px;font-weight:400;letter-spacing:.1px}
+/* UPDATED: Removed max-width from body to allow full screen */
+body{font-family:'Poppins',system-ui,sans-serif;color:var(--ink);background:#fff;width:100%;margin:0 auto;line-height:1.6;overflow-x:hidden;font-size:16px;font-weight:400;letter-spacing:.1px}
 a{text-decoration:none;color:inherit}
 .accent{color:var(--blue)}
 
@@ -66,7 +67,7 @@ a{text-decoration:none;color:inherit}
 }
 
 /* ---------- BUTTONS ---------- */
-.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border-radius:999px;font-size:16px;font-weight:500;font-family:'Poppins',sans-serif;transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s;cursor:pointer;border:0;position:relative;overflow:hidden;letter-spacing:.2px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 24px;border-radius:999px;font-size:16px;font-weight:500;font-family:'Poppins',sans-serif;transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s;cursor:pointer;border:0;position:relative;overflow:hidden;letter-spacing:.2px;white-space:nowrap;}
 .btn:hover{transform:translateY(-3px) scale(1.03)}
 .btn:active{transform:translateY(0) scale(.97)}
 .btn-blue{background:var(--blue);color:#fff;box-shadow:0 6px 16px rgba(43,58,159,.3);animation:pulseGlow 3s ease-in-out infinite}
@@ -108,8 +109,9 @@ a{text-decoration:none;color:inherit}
 }
 
 /* ---------- NAV ---------- */
-.nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px 22px;background:rgba(250,250,250,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:0 0 18px 18px;transition:box-shadow .3s,padding .3s}
-.nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.08);padding:8px 22px}
+/* UPDATED: Added max-width and padding to keep nav content centered */
+.nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px max(22px, calc((100% - 1280px) / 2));background:rgba(250,250,250,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:0 0 18px 18px;transition:box-shadow .3s,padding .3s;width:100%;}
+.nav.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.08);padding:8px max(22px, calc((100% - 1280px) / 2))}
 .nav.scrolled .logo img{height:46px}
 
 .nav-links{display:flex;gap:30px;font-size:14px;font-weight:500;margin-right:auto;margin-left:30px}
@@ -188,7 +190,8 @@ body.menu-open{overflow:hidden}
 .wa-float:hover .wa-tip{opacity:1;transform:translateY(-50%) translateX(0)}
 
 /* ---------- HERO ---------- */
-.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;min-height:760px;padding:120px 40px 160px;background:linear-gradient(180deg,#dfe6ff 0%,#eef1ff 55%,#fff 100%);background-size:200% 200%;animation:gradientShift 12s ease infinite;border-radius:24px;margin-top:-6px;position:relative;overflow:hidden}
+/* UPDATED: Set width to 100%, and added a max-width to inner content to keep it centered and not too wide */
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;min-height:760px;padding:120px max(40px, calc((100% - 1200px) / 2)) 160px;background:linear-gradient(180deg,#dfe6ff 0%,#eef1ff 55%,#fff 100%);background-size:200% 200%;animation:gradientShift 12s ease infinite;border-radius:24px;margin-top:-6px;position:relative;overflow:hidden;width:100%;}
 .hero::before{content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(63,154,28,.12),transparent 70%);animation:float 7s ease-in-out infinite}
 .hero::after{content:'';position:absolute;bottom:-40px;left:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(43,58,159,.10),transparent 70%);animation:float 9s ease-in-out infinite reverse}
 .hero-text{position:relative;z-index:2}
@@ -380,27 +383,6 @@ body.menu-open{overflow:hidden}
   transform:scale(1.05);
   filter:saturate(1.08) contrast(1.03);
 }
-.quick-about .thumb::after{
-  content:'';
-  position:absolute;
-  top:14px;left:14px;
-  width:56px;height:56px;
-  border-radius:14px;
-  background:linear-gradient(135deg,rgba(43,58,159,.85),rgba(63,154,28,.85));
-  -webkit-backdrop-filter:blur(10px);
-  backdrop-filter:blur(10px);
-  z-index:2;
-  box-shadow:0 8px 20px -6px rgba(0,0,0,.35);
-}
-.quick-about .thumb::before{
-  content:'✨';
-  position:absolute;
-  top:26px;left:26px;
-  font-size:24px;
-  z-index:3;
-  line-height:1;
-  filter:drop-shadow(0 2px 4px rgba(0,0,0,.3));
-}
 .quick-about .text{position:relative}
 .quick-about > .text > p{
   font-size:clamp(18px,2vw,24px);
@@ -433,6 +415,7 @@ body.menu-open{overflow:hidden}
   background:linear-gradient(180deg,#fff 0%,#f8faff 100%);
   position:relative;
   overflow:hidden;
+  width: 100%;
 }
 .clients::before{
   content:'';
@@ -559,12 +542,14 @@ body.menu-open{overflow:hidden}
 /* ============================================================
    SERVICES — TWO COLUMN LAYOUT (LEFT TEXT, RIGHT STACKED CARDS)
    ============================================================ */
+/* UPDATED: Added max-width and center to keep this section elegant on large screens */
 .services{
-  padding:80px 40px 40px;
+  padding:80px max(40px, calc((100% - 1200px) / 2)) 40px;
   display:grid;
   grid-template-columns:1fr 1.2fr;
   gap:48px;
   align-items:start;
+  width:100%;
 }
 
 /* LEFT SIDE — TEXT CONTENT */
@@ -697,12 +682,33 @@ body.menu-open{overflow:hidden}
 .stack-card.stack-blue .stack-cta{border-top-color:rgba(255,255,255,.18)}
 .stack-card.is-covered{transform:scale(.94);opacity:.6;box-shadow:0 6px 20px rgba(16,24,40,.08)}
 
-/* ---------- CTA ---------- */
-.cta{margin-top:56px;background:var(--blue);color:#fff;border-radius:16px;display:flex;align-items:center;justify-content:space-between;padding:34px 40px;box-shadow:0 16px 36px rgba(43,58,159,.28);transition:transform .35s,box-shadow .35s;gap:20px;flex-wrap:wrap}
-.cta:hover{transform:translateY(-4px);box-shadow:0 22px 48px rgba(43,58,159,.4)}
-.cta h3{font-size:22px;font-weight:600;letter-spacing:.3px}
-.cta p{font-size:15px;margin-top:8px;opacity:.9;line-height:1.5}
-.cta-actions{display:flex;gap:12px;flex-wrap:wrap}
+/* ============================================================
+   ELEGANT CTA (FIXED)
+   ============================================================ */
+/* UPDATED: Added max-width and center */
+.cta-wrapper { padding: 0 max(40px, calc((100% - 1200px) / 2)); margin-top: 56px; width: 100%;}
+.cta {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+  color: #fff;
+  border-radius: 20px;
+  padding: 40px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  box-shadow: 0 20px 40px -12px rgba(27, 38, 112, 0.4);
+  transition: transform .35s, box-shadow .35s;
+  flex-wrap: wrap;
+}
+.cta:hover { transform: translateY(-4px); box-shadow: 0 24px 48px -12px rgba(27, 38, 112, 0.5); }
+.cta-content { flex: 1; min-width: 280px; }
+.cta h3 { font-size: 24px; font-weight: 700; letter-spacing: -.3px; margin-bottom: 8px; line-height: 1.3; }
+.cta p { font-size: 15px; opacity: .9; line-height: 1.6; max-width: 480px; }
+.cta-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.cta-actions .btn { padding: 14px 28px; font-size: 15px; font-weight: 600; flex-shrink: 0; }
+.cta-actions .btn-white { color: var(--blue-dark); }
+.cta-actions .btn-wa { background: var(--wa); color: #fff; }
+.cta-actions .btn-wa:hover { background: var(--wa-dark); }
 
 /* ============================================================
    EXPERIENCE — FIXED CENTERED LAYOUT
@@ -760,7 +766,7 @@ body.menu-open{overflow:hidden}
 .trust div:nth-child(3){background:var(--green-soft);color:var(--green)}
 
 /* ---------- ACTION ---------- */
-.action{text-align:center;color:#fff;padding:100px 24px;background:linear-gradient(rgba(10,18,60,.65),rgba(10,18,60,.65)),linear-gradient(135deg,#2b2b2b,#6b6b6b 50%,#1e1e1e);background-size:200% 200%;animation:gradientShift 10s ease infinite}
+.action{text-align:center;color:#fff;padding:100px 24px;background:linear-gradient(rgba(10,18,60,.65),rgba(10,18,60,.65)),linear-gradient(135deg,#2b2b2b,#6b6b6b 50%,#1e1e1e);background-size:200% 200%;animation:gradientShift 10s ease infinite;width: 100%;}
 .action h2{font-size:34px;font-weight:700}
 .action p{margin:14px 0 24px;font-size:17px;opacity:.9;line-height:1.6}
 
@@ -781,7 +787,8 @@ body.menu-open{overflow:hidden}
 .contact-wa .btn{font-size:15px;padding:14px 28px}
 
 /* ---------- FOOTER ---------- */
-.footer{padding:50px 40px 28px;background:linear-gradient(180deg,#fff,#e8ecff)}
+/* UPDATED: Matched contact.html styling */
+.footer{padding:50px max(40px, calc((100% - 1200px) / 2)) 28px;background:linear-gradient(180deg,#fff,#e8ecff);width: 100%;}
 .footer-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:26px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:16px}
 .footer-logos{display:flex;align-items:center;gap:30px;flex-wrap:wrap}
 .footer-top .logo img{height:56px}
@@ -906,7 +913,10 @@ body.menu-open{overflow:hidden}
    RESPONSIVE
    ============================================================ */
 @media(max-width:1100px){
-  /* Collapse services to single column on tablet */
+  .nav{padding:12px 22px;}
+  .nav.scrolled{padding:8px 22px;}
+  .hero{padding:100px 30px 80px;}
+  
   .services{
     grid-template-columns:1fr;
     gap:40px;
@@ -929,23 +939,45 @@ body.menu-open{overflow:hidden}
     margin-right:auto;
   }
   .services-cta{justify-content:center}
-  
-  /* FIX: Added margin to separate text from cards on tablet/mobile */
-  .stack-wrap {
-    margin-top: 40px;
-  }
+  .stack-wrap { margin-top: 40px; }
+  .cta-wrapper{padding:0 30px;}
 }
 
 @media(max-width:900px){
+  .nav{padding:12px 22px;}
+  .nav.scrolled{padding:8px 22px;}
   .nav-links{display:none}
   .nav-toggle{display:block}
   .nav > .btn-blue{display:none}
   .logo img{height:46px}
   .nav.scrolled .logo img{height:42px}
 
-  .hero{grid-template-columns:1fr;padding:100px 24px 80px;min-height:auto}
-  .compare-wrap{margin:0 auto;max-width:520px}
+  /* Mobile/Tablet Hero adjustments */
+  .hero{
+    grid-template-columns:1fr;
+    padding:40px 24px 60px; 
+    min-height:auto;
+    text-align:center; 
+  }
+  .compare-wrap{margin:20px auto 0;max-width:520px}
+  
+  .hero-text { text-align: center; }
+  .hero-brand {
+    display: inline-flex;
+    margin: 0 auto 12px auto; 
+  }
   .hero-brand img{height:60px}
+  
+  .loc {
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+  
+  .hero h1 { margin: 0 auto; }
+  .sub { margin: 16px auto 0; }
+  .stats { justify-content: center; }
+  .hero-cta-row { justify-content: center; }
+  .hero-trust { justify-content: center; }
 
   .quick-about{
     grid-template-columns:1fr;
@@ -962,12 +994,23 @@ body.menu-open{overflow:hidden}
   .clients{padding:56px 0 40px;}
   .clients-title{font-size:26px;}
   .clients-track{gap:44px;animation-duration:32s;}
-  .client-logo{width:200px;height:110px;} /* Increased for tablet */
+  .client-logo{width:200px;height:110px;} 
 
   .trust{grid-template-columns:1fr 1fr}
-  .cta{flex-direction:column;align-items:flex-start;gap:20px;padding:28px 26px}
-  .cta-actions{width:100%}
-  .cta-actions .btn{flex:1;justify-content:center}
+  
+  /* CTA Responsive adjustment */
+  .cta-wrapper { padding: 0 22px; margin-top: 40px; }
+  .cta {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 28px;
+    gap: 24px;
+  }
+  .cta h3 { font-size: 20px; }
+  .cta p { font-size: 14px; }
+  .cta-actions { width: 100%; }
+  .cta-actions .btn { flex: 1; }
+
   .reveal.reveal-left,.reveal.reveal-right{transform:translateY(40px) scale(.94);}
 
   .services{padding:60px 22px 20px}
@@ -989,6 +1032,7 @@ body.menu-open{overflow:hidden}
   .modal-body{padding:22px 24px 24px}
   .form-grid{grid-template-columns:1fr;gap:0}
 
+  .footer{padding:50px 22px 28px;}
   .footer-logos{gap:16px;}
   .footer-top .logo img, .footer-logo-doctor img{height:44px}
 }
@@ -1004,16 +1048,21 @@ body.menu-open{overflow:hidden}
   .wa-float svg{width:26px;height:26px}
   .wa-float .wa-tip{display:none}
 
-  .compare-wrap{padding:10px;border-radius:20px}
+  .hero { padding: 24px 16px 40px; }
+  .hero-brand img { height: 52px; }
+  .hero h1 { font-size: 32px; }
+  .sub { font-size: 15px; margin-top: 12px; }
+  .stats { gap: 16px; margin: 16px 0 20px; }
+  .hero-cta-row { flex-direction: column; width: 100%; }
+  .hero-cta-row .btn { width: 100%; justify-content: center; }
+
+  .compare-wrap{padding:10px;border-radius:20px; margin-top: 20px;}
   .compare{border-radius:14px}
   .tag{top:12px;font-size:10.5px;padding:6px 12px;letter-spacing:1px}
   .tag-after{left:12px}
   .tag-before{right:12px}
   .handle{width:2px}
   .compare-hint{font-size:11.5px;margin-top:12px}
-
-  .hero-brand{margin-bottom:16px}
-  .hero-brand img{height:52px}
 
   .quick-about{
     padding:16px 20px 40px;
@@ -1022,15 +1071,6 @@ body.menu-open{overflow:hidden}
   .quick-about .thumb{
     max-width:100%;
     border-radius:20px;
-  }
-  .quick-about .thumb::after{
-    width:46px;height:46px;
-    border-radius:12px;
-    top:12px;left:12px;
-  }
-  .quick-about .thumb::before{
-    top:22px;left:22px;
-    font-size:20px;
   }
   .quick-about > .text > p{
     font-size:17px;
@@ -1045,7 +1085,7 @@ body.menu-open{overflow:hidden}
   .clients-title{font-size:22px;}
   .clients-sub{font-size:14px;margin-bottom:28px;}
   .clients-track{gap:32px;animation-duration:26s;}
-  .client-logo{width:180px;height:105px;} /* Increased for mobile */
+  .client-logo{width:180px;height:105px;}
   .clients-note{font-size:12px;padding:9px 18px;margin-top:28px;}
 
   .services{padding:50px 16px 20px}
@@ -1071,14 +1111,18 @@ body.menu-open{overflow:hidden}
 
   .stack-card.is-covered{transform:scale(.96);opacity:.65}
 
-  .hero h1{font-size:32px}
-  .hero-cta-row{flex-direction:column;width:100%}
-  .hero-cta-row .btn{width:100%;justify-content:center}
+  /* Mobile CTA adjustments */
+  .cta-wrapper { padding: 0 16px; margin-top: 32px; }
+  .cta { padding: 28px 24px; border-radius: 16px; }
+  .cta h3 { font-size: 18px; }
+  .cta p { font-size: 13.5px; }
+  .cta-actions { flex-direction: column; gap: 10px; }
+  .cta-actions .btn { width: 100%; padding: 14px 20px; }
+
   .hero-trust{font-size:11.5px}
   .contact h2{font-size:26px}
   .action h2{font-size:26px}
   .big-title{font-size:24px}
-  .cta h3{font-size:18px}
   .phone{font-size:15px;padding:14px 20px}
 
   .insta{padding:52px 20px}
@@ -1100,6 +1144,7 @@ body.menu-open{overflow:hidden}
   .success-icon{width:64px;height:64px;font-size:30px}
   .modal-success h3{font-size:18px}
 
+  .footer{padding:36px 16px 22px;}
   .footer-logos{gap:12px;}
   .footer-top .logo img, .footer-logo-doctor img{height:38px}
   .footer-social{gap:16px}
@@ -1465,10 +1510,10 @@ body.menu-open{overflow:hidden}
 
 </section>
 
-<!-- CTA banner (below services) -->
-<div style="padding:0 40px;">
+<!-- ELEGANT CTA (FIXED) -->
+<div class="cta-wrapper">
   <div class="cta reveal reveal-scale">
-    <div>
+    <div class="cta-content">
       <h3>READY FOR A CLEANER, SAFER HOME?</h3>
       <p>Available 24/7 for emergency service. Book instantly on WhatsApp.</p>
     </div>
@@ -1527,7 +1572,7 @@ body.menu-open{overflow:hidden}
 </main>
 
 <!-- ============================================================
-     FOOTER — UPDATED WITH DOCTOR LEAKAGE LOGO
+     FOOTER — MATCHED TO CONTACT.HTML
      ============================================================ -->
 <footer class="footer">
   <div class="footer-top">
@@ -1538,19 +1583,27 @@ body.menu-open{overflow:hidden}
         <img src="assets/logo.webp" alt="SPICUP Multi Cleaning Service logo">
       </a>
       <a href="https://www.instagram.com/doctor_leakage" target="_blank" rel="noopener" class="footer-logo-doctor" aria-label="Doctor Leakage">
-        <!-- ADDED DOCTOR LEAKAGE LOGO HERE -->
         <img src="assets/l-logo.webp" alt="Doctor Leakage logo">
       </a>
     </div>
 
+    <!-- SOCIAL LINKS -->
     <div class="footer-social">
-      <a href="https://www.instagram.com/spicupmulticleaningservice?vrfl=Ynh4ajd1aTR6cG0=" target="_blank" rel="noopener" aria-label="Instagram">
+      <a href="https://www.instagram.com/spicupmulticleaningservice?vrfl=Ynh4ajd1aTR6cG0=" target="_blank" rel="noopener" aria-label="SPICUP Instagram">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
           <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
           <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
         </svg>
-        Instagram
+        SPICUP IG
+      </a>
+      <a href="https://www.instagram.com/doctor_leakage?cplk=Z2dlcDdxMGpxZmYz" target="_blank" rel="noopener" aria-label="Doctor Leakage Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+        Doctor Leakage IG
       </a>
       <a href="https://www.facebook.com/share/1EZWEnyzPk/" target="_blank" rel="noopener" aria-label="Facebook">
         <svg viewBox="0 0 24 24" fill="currentColor">
@@ -1560,10 +1613,11 @@ body.menu-open{overflow:hidden}
       </a>
     </div>
   </div>
+  
   <div class="footer-bottom">
     <nav>
       <a href="about.html">About</a>
-      <a href="#service">Services</a>
+      <a href="index.html#service">Services</a>
       <a href="contact.html">Contact</a>
       <a href="gallery.html">See our works</a>
     </nav>
