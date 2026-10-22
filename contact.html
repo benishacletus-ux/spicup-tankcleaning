@@ -233,14 +233,30 @@ body.menu-open{overflow:hidden}
 .mini:hover{background:var(--blue);color:#fff;transform:translateY(-1px)}
 .mini.done{background:var(--green);color:#fff}
 
-/* ---------- Map ---------- */
+/* ---------- Map (Updated for two maps) ---------- */
+.map-container {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.map-box {
+  display: flex;
+  flex-direction: column;
+}
+.map-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue-dark);
+  margin-bottom: 8px;
+}
 .map{
-  margin-top:20px;
   border-radius:16px;
   overflow:hidden;
   border:1px solid var(--border);
-  height:240px;
+  height:220px; /* Slightly taller for the satellite view */
   box-shadow:0 4px 16px rgba(16,24,40,.06);
+  position: relative;
 }
 .map iframe{width:100%;height:100%;border:0;display:block}
 
@@ -373,6 +389,10 @@ textarea{min-height:110px;resize:vertical;line-height:1.55;font-size:14px}
   .wrap{grid-template-columns:1fr;padding:36px 22px 44px;gap:24px}
   .panel{padding:26px 24px;border-radius:20px}
   .panel h2{font-size:20px}
+
+  /* Map responsive */
+  .map-container { grid-template-columns: 1fr; }
+  .map { height: 240px; }
 
   .hours{margin:0 22px 50px;padding:26px 26px;flex-direction:column;align-items:flex-start;border-radius:20px}
   .hours h3{font-size:18px}
@@ -550,17 +570,33 @@ textarea{min-height:110px;resize:vertical;line-height:1.55;font-size:14px}
           <button class="mini copy" data-num="9994412222" aria-label="Copy number">Copy</button>
         </div>
       </div>
-      <div class="row">
+      <div class="row" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
         <div>
-          <div class="label">Address</div>
-          <div class="val plain">Mettupalayam Bus Stand, Tirupur</div>
+          <div class="label">Head Office</div>
+          <div class="val plain" itemprop="streetAddress">Mettupalayam Bus Stand, Tirupur</div>
+          <meta itemprop="addressLocality" content="Tirupur">
+          <meta itemprop="addressRegion" content="Tamil Nadu">
         </div>
       </div>
     </div>
 
-    <div class="map">
-      <iframe title="SPICUP location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps?q=Mettupalayam+Bus+Stand+Tirupur&output=embed"></iframe>
+    <!-- UPDATED: Two Maps Container with Exact Locations -->
+    <div class="map-container">
+      <div class="map-box">
+        <div class="map-title">📍 Branch 1: Mettupalayam</div>
+        <div class="map">
+          <iframe title="SPICUP Mettupalayam location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Mettupalayam+Bus+Stand+Tirupur&output=embed"></iframe>
+        </div>
+      </div>
+      <div class="map-box">
+        <div class="map-title">📍 Branch 2: PN Road (SPIC Water Tank)</div>
+        <div class="map">
+          <!-- This embed uses the exact place name to show the correct pin -->
+          <iframe title="SPIC Water Tank Cleaning Services PN Road map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=SPIC+WATER+TANK+CLEANING+SERVICES,+PN+Road,+Tiruppur&output=embed&z=17"></iframe>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -880,13 +916,23 @@ document.querySelectorAll('.btn').forEach(btn => {
     "url": "https://www.spicclean.in/",
     "telephone": "+91-84384-99899",
     "priceRange": "₹₹",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Mettupalayam Bus Stand",
-      "addressLocality": "Tirupur",
-      "addressRegion": "Tamil Nadu",
-      "addressCountry": "IN"
-    },
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "Mettupalayam Bus Stand",
+        "addressLocality": "Tirupur",
+        "addressRegion": "Tamil Nadu",
+        "addressCountry": "IN"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "City Complex, 266, PN Road, Ramaiya Colony",
+        "addressLocality": "Tiruppur",
+        "addressRegion": "Tamil Nadu",
+        "postalCode": "641602",
+        "addressCountry": "IN"
+      }
+    ],
     "geo": {
       "@type": "GeoCoordinates",
       "latitude": "11.1085",
