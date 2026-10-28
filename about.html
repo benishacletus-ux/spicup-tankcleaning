@@ -238,7 +238,8 @@ body.menu-open{overflow:hidden}
 .footer-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:26px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:16px}
 .footer-logos{display:flex;align-items:center;gap:30px;flex-wrap:wrap}
 .footer-top .logo img{height:56px}
-.footer-logo-doctor img{height:56px;width:auto;display:block;object-fit:contain;}
+/* UPDATED: Doctor Leakage logo made MUCH bigger than SPICUP logo */
+.footer-logo-doctor img{height:96px;width:auto;display:block;object-fit:contain;}
 .footer-social{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
 .footer-social a{font-size:14px;transition:color .25s,transform .25s;display:inline-flex;align-items:center;gap:6px;font-weight:500}
 .footer-social a[aria-label="Instagram"]:hover{color:var(--ig);transform:scale(1.08)}
@@ -267,7 +268,9 @@ body.menu-open{overflow:hidden}
   /* UPDATED: Reduced footer padding for tablets */
   .footer{padding:50px 22px 28px}
   .footer-logos{gap:16px;}
-  .footer-top .logo img, .footer-logo-doctor img{height:44px}
+  .footer-top .logo img{height:44px}
+  /* UPDATED: Doctor Leakage logo much bigger on tablet */
+  .footer-logo-doctor img{height:76px}
 }
 
 @media(max-width:520px){
@@ -306,7 +309,9 @@ body.menu-open{overflow:hidden}
   /* UPDATED: Reduced footer padding for mobile */
   .footer{padding:40px 16px 24px}
   .footer-logos{gap:12px;}
-  .footer-top .logo img, .footer-logo-doctor img{height:38px}
+  .footer-top .logo img{height:38px}
+  /* UPDATED: Doctor Leakage logo much bigger on mobile */
+  .footer-logo-doctor img{height:64px}
   .footer-social{gap:16px}
   .footer-social a{font-size:13px}
 }
